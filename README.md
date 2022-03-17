@@ -72,6 +72,7 @@ The stack includes:
 first step
 
 ```
+$ nvm use
 $ yarn
 ```
 
