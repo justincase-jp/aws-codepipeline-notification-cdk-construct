@@ -7,12 +7,14 @@ import {
   aws_events as events,
   Duration,
 } from 'aws-cdk-lib';
+import { Pipeline } from 'aws-cdk-lib/aws-codepipeline';
 import { Construct } from 'constructs';
 
 
 export interface Props {
   readonly webhookUrl: string;
   readonly messenger: string;
+  readonly pipeline: Pipeline;
 }
 
 export class PipelineNotification extends Construct {
@@ -21,6 +23,7 @@ export class PipelineNotification extends Construct {
     const {
       webhookUrl,
       messenger,
+      pipeline,
     } = props;
 
     const fn = new lambda.Function(this, 'lambda', {
@@ -60,6 +63,7 @@ export class PipelineNotification extends Construct {
         source: [
           'aws.codepipeline',
         ],
+        resources: [pipeline.pipelineArn],
         detail: { state: ['STARTED', 'FAILED'] },
       },
       targets: [new targets.LambdaFunction(fn, {})],
