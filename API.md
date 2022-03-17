@@ -118,6 +118,7 @@ const props: Props = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#aws-codepipeline-notification-cdk-construct.Props.property.messenger">messenger</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#aws-codepipeline-notification-cdk-construct.Props.property.pipeline">pipeline</a></code> | <code>aws-cdk-lib.aws_codepipeline.Pipeline</code> | *No description.* |
 | <code><a href="#aws-codepipeline-notification-cdk-construct.Props.property.webhookUrl">webhookUrl</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -129,6 +130,16 @@ public readonly messenger: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `pipeline`<sup>Required</sup> <a name="pipeline" id="aws-codepipeline-notification-cdk-construct.Props.property.pipeline"></a>
+
+```typescript
+public readonly pipeline: Pipeline;
+```
+
+- *Type:* aws-cdk-lib.aws_codepipeline.Pipeline
 
 ---
 
